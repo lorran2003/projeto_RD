@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Home } from '../components/Home';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { MainSalao } from './MainPags/Salao/MainSalao';
-
+import capaSalaoMobile from '../assets/image/salao/capaSalao.jpeg';
+import capaBuffetMobile from '../assets/image/buffet/capaBuffet.jpeg';
+import capaSalao from '../assets/image/salao/capaSalaoDesktop.jpeg';
+import capaBuffet from '../assets/image/buffet/capaBuffetDesktop.jpeg';
 
 export function Main() {
 
@@ -15,56 +16,73 @@ export function Main() {
         {
             id: 1,
             nome: "BUFFET",
+            imgMobile: capaBuffetMobile,
+            img: capaBuffet,
             funcao: () => setPaginaSalao(false)
         },
         {
             id: 2,
             nome: "SALAO",
+            imgMobile: capaSalaoMobile,
+            img: capaSalao,
             funcao: () => setPaginaSalao(true)
         }
     ]
+
+    function home() {
+        setHomePag(true);
+        setPaginaSalao(false);
+    }
+    function servico() {
+        setHomePag(false);
+        setPaginaSalao(false);
+    }
+
 
 
 
     return (
         <>
-            <main className=' flex flex-col text-zinc-100/80 bg-zinc-900/85'>
+            <main className='py-8 flex flex-col text-zinc-100/80 bg-zinc-900/85'>
 
-                <div className=' flex justify-center items-center w-full h-8'>
+                <div className=' flex justify-center items-center w-full mb-6'>
                     <nav className="flex gap-5">
-                        <button className={"hover:text-zinc-50 delay-75 " + (homePag ? "border-b-2 border-red-800" : "")} onClick={() => setHomePag(true)}>HOME</button>
-                        <button className={"hover:text-zinc-50 delay-75 " + (!homePag ? "border-b-2 border-red-800" : "")} onClick={() => setHomePag(false)}>SERVICOS</button>
+                        <button className={"hover:text-zinc-50 delay-75 " + (homePag ? "border-b-2 border-red-800" : "")} onClick={() => home()}>HOME</button>
+                        <button className={"hover:text-zinc-50 delay-75 " + (!homePag ? "border-b-2 border-red-800" : "")} onClick={() => servico()}>SERVICOS</button>
                     </nav>
+
                 </div>
 
                 {paginaSalao && !homePag ? <MainSalao /> :
-                    <div className=" py-7 gap-7 flex flex-col items-center justify-center h-full">
+                    <div className=" flex flex-col items-center justify-center h-full">
 
                         {homePag ? <Home /> :
-                            <div className="flex flex-wrap justify-center items-center w-full h-full gap-5 text-zinc-900">
+                            <div className="flex flex-col flex-wrap justify-center items-center w-full h-full text-zinc-900 sm:gap-[1px]">
                                 {cards.map(card => (
 
-                                    <div key={card.id} className="flex flex-col justify-center items-center h-80 w-64 sm:w-72 sm:h-96 shadow-[0_0_2px] shadow-zinc-900 rounded-3xl p-3 bg-zinc-50 gap-2">
+                                    <div key={card.id} className="relative flex flex-col justify-center items-center w-full h-full rounded-3xl">
 
-                                        <div className="w-full h-full text-center border-solid border-zinc-400 border rounded-xl">
-                                            <img src="" alt="foto do servico" className="w-full h-full bg-zinc-800 rounded-xl" />
+                                        <div className="rounded-md w-full">
+
+                                            <div className='absolute flex flex-col justify-center items-center w-full py-1 text-zinc-50 bottom-0 sm:py-0'>
+
+                                                <button className="shadow-[0_0_0_1px] shadow-zinc-900 bg-zinc-800/90 p-2 rounded-lg text-zinc-50 sm:w-full sm:h-14 sm:bg-zinc-800/95 sm:shadow-red-900 sm:rounded-none" onClick={card.funcao}>
+                                                    {card.nome}
+                                                </button>
+
+                                            </div>
+
+                                            <picture>
+                                                <source media='(min-width:640px)' srcSet={card.img} />
+                                                <img src={card.imgMobile} alt="foto do servico" className='max-sm:w-full' />
+                                            </picture>
+
                                         </div>
-                                        <p>
-                                            {card.nome}
-                                        </p>
 
-                                        <button className="shadow-[0_0_0_1px] shadow-zinc-900 bg-zinc-800 p-2 rounded-lg text-zinc-50" onClick={card.funcao}>
-                                            Conferir
-                                        </button>
+
                                     </div>
                                 ))}
                             </div>}
-
-                        <div className="fixed bg-[#45C153] rounded-full left-3 md:bottom-5 p-1 hover:p-1.5 hover:bg-[#53ec65] hover:duration-500 duration-500 max-sm:top-6">
-                            <a href="#">
-                                <FontAwesomeIcon icon={faWhatsapp} className="size-14 hover:size-16 text-zinc-900" />
-                            </a>
-                        </div>
                     </div>
                 }
             </main>
