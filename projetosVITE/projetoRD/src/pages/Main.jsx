@@ -43,9 +43,9 @@ export function Main() {
 
     return (
         <>
-            <main className='py-8 flex flex-col text-zinc-100/80 bg-zinc-900/85'>
+            <main className='flex flex-col text-zinc-100/80 bg-zinc-900/85'>
 
-                <div className=' flex justify-center items-center w-full mb-6'>
+                <div className=' flex justify-center items-center w-full h-11'>
                     <nav className="flex gap-5">
                         <button className={"hover:text-zinc-50 delay-75 " + (homePag ? "border-b-2 border-red-800" : "")} onClick={() => home()}>HOME</button>
                         <button className={"hover:text-zinc-50 delay-75 " + (!homePag ? "border-b-2 border-red-800" : "")} onClick={() => servico()}>SERVICOS</button>

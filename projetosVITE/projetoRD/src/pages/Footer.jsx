@@ -41,10 +41,6 @@ export function Footer() {
                     </div>
                 </div>
             </div>
-
-            <div className='w-full flex items-center justify-center py-5'>
-                <img src="" alt="Foto com cliente" className='w-80 h-80 bg-zinc-500 rounded-xl' />
-            </div>
         </footer>
     );
 }

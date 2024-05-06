@@ -29,7 +29,7 @@ export function MainSalao() {
                         Contato
                     </button>
 
-                    <div className={"bg-zinc-800 duration-700 overflow-hidden flex flex-col justify-center " + (exibirContato ? "h-60" : "h-0")} >
+                    <div className={"bg-zinc-800 duration-700 overflow-hidden flex flex-col justify-center " + (exibirContato ? "h-[320px]" : "h-0")} >
 
                         <DadosClientes />
 
