@@ -1,11 +1,11 @@
-import logo from "../assets/icons/logo-removebg-preview.png";
+import logo from "../../public/logo.jpg";
 import video from "../assets/video.mp4"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 export function Header() {
     return (
-        <header className="relative -z-10 border-red-800 px-28 text-zinc-100/90 shadow-sm shadow-zinc-700 h-screen">
+        <header className="relative z-0 border-red-800 px-28 text-zinc-100/90 shadow-sm shadow-zinc-700 h-screen">
 
             <div className="absolute w-full h-screen inset-0">
                 <video autoPlay muted loop className="object-cover w-full h-screen">
@@ -18,11 +18,11 @@ export function Header() {
 
                 <div className="flex flex-col w-4/5 justify-center items-center sm:flex-row sm:justify-between">
 
-                    <div className="w-48 h-48">
-                        <img src={logo} alt="Logo" className="w-full h-full" />
+                    <div className="w-48 h-48  p-2">
+                        <img src={logo} alt="Logo" className="w-full h-full rounded-full" />
                     </div>
 
-                    <nav className="text-zinc-50/80 flex items-center justify-center">
+                    <nav className="text-zinc-50/80 flex items-center justify-center z-50">
                         <div className="border-red-800 border-r-4 px-2 flex items-center justify-center gap-2 hover:text-zinc-50 transition delay-75 w-32">
                             <a>
                                 <FontAwesomeIcon icon={faSquareFacebook} className="size-5" />
@@ -66,7 +66,7 @@ export function Header() {
                         before:h-0.5 before:w-full before:block before:bg-[#8F1620] before:opacity-50 before:absolute before:top-0">
 
 
-                        <p className="text-2xl sm:text-4xl px-1 sm:px-2 greatVibesRegular">Transformando eventos há mais de [anos] em uma celebração inesquecível da vida, do amor e da boa companhia. Junte-se a nós para uma festa que alimenta a alma com sabores que ficam na memória.</p>
+                        <p className="text-2xl sm:text-4xl px-4 greatVibesRegular">Transformando eventos há mais de 15 anos em uma celebração inesquecível da vida. Junte-se a nós para uma festa com sabores que ficam na memória.</p>
                     </div>
                 </div>
             </div>

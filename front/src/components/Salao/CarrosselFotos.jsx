@@ -9,7 +9,6 @@ import foto8 from "../../assets/image/salao/photograph/foto_salao(8).jpeg";
 import foto9 from "../../assets/image/salao/photograph/foto_salao(9).jpeg";
 import foto10 from "../../assets/image/salao/photograph/foto_salao(10).jpeg";
 import foto11 from "../../assets/image/salao/photograph/foto_salao(11).jpeg";
-import video from "../../assets/videoSalao.mp4";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 export function CarrosselFotos() {
@@ -60,28 +59,25 @@ export function CarrosselFotos() {
         },
     ]
     return (
-        <div>
-            
-            <Swiper
-                slidesPerView={1}
-                pagination={{clickable:true}}
-                navigation={true}
-                autoHeight={true}
-                centeredSlides={true}
-                centeredSlidesBounds={true}
-            >
-                {photograph.map((item) => (
-                    <SwiperSlide key={item.id}>
-                        <div>
-                            <img src={item.img} alt="fotos do salão"/>
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
 
-            <video autoPlay muted loop className="object-cover w-full">
-                <source src={video} type="video/mp4"/>
-            </video>
-        </div>
+        <Swiper
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            navigation={true}
+            autoHeight={true}
+            centeredSlides={true}
+            centeredSlidesBounds={true}
+            loop={true}
+        >
+            {photograph.map((item) => (
+                <SwiperSlide key={item.id}>
+                    <div>
+                        <img src={item.img} alt="fotos do salão" className="lg:w-full" />
+                    </div>
+                </SwiperSlide>
+            ))}
+        </Swiper>
+
+
     )
 }
