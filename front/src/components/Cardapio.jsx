@@ -1,5 +1,5 @@
 import bg from "../assets/image/bgBuffe.jpg";
-import sobremesa from "../assets/image/buffet/sobremesa.jpg";
+import sobremesa from "../assets/image/buffet/sobremesa.jpeg";
 import bebidas from "../assets/image/buffet/bebidas.jpg";
 import capaBuffet from '../assets/image/buffet/capaBuffetDesktop.jpeg';
 import entrada from '../assets/image/buffet/Entrada.jpeg';
@@ -7,7 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHashtag, faAnglesUp, faAnglesDown } from "@fortawesome/free-solid-svg-icons";
 import { Swiper, SwiperSlide } from "swiper/react";
 import guarnicao from "../assets/image/buffet/guarnicao.jpeg"
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useMinHeight } from "./useMinHeight";
 
 const arrayMenu = [
     {
@@ -92,22 +93,17 @@ const arrayMenu = [
             {
                 id: 0,
                 number: 1,
-                name: "Alcatra"
+                name: "Banana com cobertura"
             },
             {
                 id: 1,
                 number: 2,
-                name: "Coração de alcatra"
+                name: "Canela"
             },
             {
                 id: 2,
                 number: 3,
-                name: "Coração de frango"
-            },
-            {
-                id: 3,
-                number: 4,
-                name: "Drumet"
+                name: "Sorvete"
             },
         ]
     },
@@ -157,7 +153,7 @@ const arrayGuarnicao = {
         {
             id: 2,
             number: 3,
-            name: "Feijão fraudinho"
+            name: "Feijão fradinho"
         },
         {
             id: 3,
@@ -194,20 +190,8 @@ const arrayGuarnicao = {
 
 export function Cardapio() {
 
+    const ocultarImage = useMinHeight();
     const [expandir, setExpandir] = useState(false);
-    const [ocultarImage, setOcultarImage] = useState(Boolean);
-    useEffect(() => {
-
-        function handleResize() {
-            window.innerHeight < 570 ? setOcultarImage(true) : setOcultarImage(false)
-        }
-
-        handleResize();
-
-        window.addEventListener('resize', handleResize)
-
-        return () => { window.removeEventListener('resize', handleResize) }
-    }, [])
 
     return (
         <div className="w-full h-screen z-50 bg-fixed text-zinc-50 " style={{ backgroundImage: `url(${bg})` }}>
@@ -225,7 +209,7 @@ export function Cardapio() {
 
                             <div className="lg:flex lg:items-center">
 
-                                {!ocultarImage ? <img src={item.img} alt="Entrada" className="w-full lg:h-screen lg:max-w-4xl object-cover" /> : ""}
+                                {ocultarImage ? "" : <img src={item.img} alt="Entrada" className="w-full lg:h-screen lg:max-w-4xl object-cover" />}
 
 
                                 <div className="bg-zinc-900/95 duration-700 text-center h-screen w-full">
@@ -250,15 +234,16 @@ export function Cardapio() {
 
                         <div className="lg:flex lg:items-center">
 
-                            {!ocultarImage ? <img src={arrayGuarnicao.img} alt={"foto da " + (arrayGuarnicao.type)} className="lg:h-screen lg:max-w-4xl object-cover" /> : ""}
+                            {ocultarImage ? "" : <img src={arrayGuarnicao.img} alt={"foto da " + (arrayGuarnicao.type)} className="lg:h-screen lg:max-w-4xl object-cover" />}
 
 
                             <div className={"bg-zinc-900/95 duration-700 text-center h-screen w-full absolute lg:static " + (expandir ? " top-0 " : "top-full ")}>
 
-                                {!ocultarImage ?
+                                {ocultarImage ?
+                                    "" :
                                     <button className={"bg-zinc-50/80 animate-bounce px-2 rounded-md relative bottom-8 lg:hidden" + (expandir ? "hidden" : "")} onClick={() => setExpandir(true)}>
                                         <FontAwesomeIcon icon={faAnglesUp} className="text-zinc-950 text-4xl" />
-                                    </button> : ""}
+                                    </button>}
 
 
                                 <div>
@@ -271,10 +256,11 @@ export function Cardapio() {
                                     ))}
                                 </div>
 
-                                {!ocultarImage ?
+                                {ocultarImage ?
+                                    "" :
                                     <button className="bg-zinc-50/80 animate-bounce px-2 rounded-md mt-5 lg:hidden" onClick={() => setExpandir(false)}>
                                         <FontAwesomeIcon icon={faAnglesDown} className="text-zinc-950 text-3xl" />
-                                    </button> : ""}
+                                    </button>}
 
                             </div>
                         </div>

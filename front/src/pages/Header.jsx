@@ -1,20 +1,35 @@
 import logo from "../../public/logo.jpg";
 import video from "../assets/video.mp4"
+import videoMobile from "../assets/Video_RdChurrasco.mp4"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { useMobile } from "../components/useMobile";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export function Header() {
+    const mobile = useMobile();
+
+    useGSAP(() => {
+        const ct = gsap.context(
+            gsap.to("#divMain", {delay:1.5, duration:3, opacity:1}),
+            gsap.to("#divIntro", {delay:3, duration:1, height:150})
+        )
+
+        return () => {ct.revert()};
+    },[]);
+
     return (
         <header className="relative z-0 border-red-800 px-28 text-zinc-100/90 shadow-sm shadow-zinc-700 h-screen">
 
             <div className="absolute w-full h-screen inset-0">
                 <video autoPlay muted loop className="object-cover w-full h-screen">
-                    <source src={video} type="video/mp4" />
+                    <source src={mobile ? videoMobile : video} type="video/mp4" />
                 </video>
             </div>
 
 
-            <div className="flex flex-col items-center justify-start gap-9 absolute z-10 w-full h-screen bg-zinc-950/40 inset-0 overflow-hidden">
+            <div id="divMain" className="flex flex-col items-center justify-start gap-9 absolute z-10 w-full h-screen bg-zinc-950/55 inset-0 overflow-hidden opacity-0">
 
                 <div className="flex flex-col w-4/5 justify-center items-center sm:flex-row sm:justify-between">
 
@@ -60,9 +75,10 @@ export function Header() {
                         </p>
                     </div>
 
-                    <div className="relative w-full sm:w-4/5 h-48 sm:h-[30%] flex flex-col justify-center items-center text-zinc-50 sm:rounded bg-zinc-950/20 sm:m-auto
+                    <div id="divIntro" className="relative w-full sm:w-4/5 h-0 overflow-hidden sm:h-[30%] flex flex-col justify-center items-center text-zinc-50 sm:rounded bg-zinc-950/20 sm:m-auto
 
                         after:content-[''] after:bg-[#8F1620] after:opacity-50 after:h-0.5 after:w-full after:block after:absolute after:bottom-0
+                        
                         before:h-0.5 before:w-full before:block before:bg-[#8F1620] before:opacity-50 before:absolute before:top-0">
 
 

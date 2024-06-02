@@ -5,7 +5,7 @@ export function Footer() {
 
 
     return (
-        <footer className=" bg-zinc-950/85 text-zinc-100/90 border-t-2 border-red-700 roboto-light flex flex-col justify-center items-center gap-2">
+        <footer className=" bg-zinc-950/85 text-zinc-100/90 border-t-2 border-red-700 roboto-light flex flex-col justify-center items-center gap-2 py-6">
             <img src={logo} alt='logo da empresa' className='rounded-full mt-3 w-32' />
 
             <div className='flex gap-3'>

@@ -1,27 +1,13 @@
-import { useState, useEffect } from 'react';
 import { Home } from '../components/Home';
 import bg from "../assets/image/bgBuffe.jpg";
 import { DesktopView } from '../components/DesktopView';
 import { MobileView } from '../components/MobileView';
+import { useMobile } from '../components/useMobile';
 
 
 export function Main() {
 
-    const [innerWidth, setInnerWidth] = useState(false);
-
-
-    useEffect(() => {
-
-        function handleResize() {
-            window.innerWidth > 1020 ? setInnerWidth(true) : setInnerWidth(false)
-        }
-
-        handleResize();
-
-        window.addEventListener('resize', handleResize)
-
-        return () => { window.removeEventListener('resize', handleResize) }
-    }, [])
+    const mobile = useMobile();
 
     return (
 
@@ -32,7 +18,7 @@ export function Main() {
                 <Home />
 
                 {/* condição para mudar os components conforme a responsividade */}
-                {innerWidth ? <DesktopView /> : <MobileView /> }
+                {mobile ?  <MobileView /> : <DesktopView /> }
 
             </div>
         </main>
