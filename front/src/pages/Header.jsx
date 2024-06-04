@@ -75,7 +75,7 @@ export function Header() {
                         </p>
                     </div>
 
-                    <div id="divIntro" className="relative w-full sm:w-4/5 h-0 overflow-hidden sm:h-[30%] flex flex-col justify-center items-center text-zinc-50 sm:rounded bg-zinc-950/20 sm:m-auto
+                    <div id="divIntro" className="relative w-full sm:w-4/5 h-0 overflow-hidden flex flex-col justify-center items-center text-zinc-50 sm:rounded bg-zinc-950/20 sm:m-auto
 
                         after:content-[''] after:bg-[#8F1620] after:opacity-50 after:h-0.5 after:w-full after:block after:absolute after:bottom-0
                         

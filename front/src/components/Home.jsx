@@ -17,7 +17,7 @@ export function Home() {
 
                 scrollTrigger: {
                     trigger: "#divImg",
-                    start: "top 70%",
+                    start: "top 90%",
                 }
 
             })
@@ -27,7 +27,7 @@ export function Home() {
 
                 scrollTrigger: {
                     trigger: "#text",
-                    start: "top 55%",
+                    start: "top 60%",
                 }
 
             })

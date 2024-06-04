@@ -23,7 +23,7 @@ export function MobileView() {
     const [salao, setSalao] = useState(false);
     const cardapio = "cardapio";
     const pedido = "pedido";
-
+    
     // função para abrir os modais
     function isOpenModal(string) {
 
@@ -80,14 +80,14 @@ export function MobileView() {
             let tlBuffet = gsap.timeline({
                 scrollTrigger: {
                     trigger: "#divBuffet",
-                    start: "top 85%",
+                    start: "top 90%",
                 }
 
             })
             let tlSalao = gsap.timeline({
                 scrollTrigger: {
                     trigger: "#divSalao",
-                    start: "top 85%",
+                    start: "top 90%",
                 }
 
             })
