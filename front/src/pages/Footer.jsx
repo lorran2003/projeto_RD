@@ -9,9 +9,9 @@ export function Footer() {
             <img src={logo} alt='logo da empresa' className='rounded-full mt-3 w-32' />
 
             <div className='flex gap-3'>
-                <a href='#'>Instagram</a>
+                <a href="https://www.instagram.com/rdchurrasco/" target="_blank">Instagram</a>
                 <a href='#'>Contato</a>
-                <a href='#'>Facebook</a>
+                <a href="https://www.facebook.com/rdchurrascorj" target="_blank">Facebook</a>
             </div>
 
             <div className='w-full h-full flex justify-center items-center gap-2 text-xl'>
@@ -29,7 +29,7 @@ export function Footer() {
             </div>
 
             <p>Rio de janeiro - RJ </p>
-            
+
             <p>&copy; RD Churrasco. Todos os direitos reservados.</p>
         </footer>
     );

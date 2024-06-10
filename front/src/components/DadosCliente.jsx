@@ -9,7 +9,7 @@ export function DadosClientes() {
     return (
         <div className="text-zinc-50 font-bold p-4 w-full">
 
-            <div className="flex flex-col justify-between items-start gap-2 w-full">
+            <div className="flex flex-col justify-between items-start gap-2 lg:gap-4 w-full">
 
                 <p>
                     Por favor, digte as seguintes informacões:
@@ -60,7 +60,7 @@ export function DadosClientes() {
                         "nome": nome,
                         "telefone": telefone,
                         "data_evento": dateEventoHtml,
-                        "qtd_pessoas": parseInt(convidados),
+                        "qtd_pessoas": parseInt(convidados), 
                         "tipo_evento":select,
                         "pedido_aceito": "sim"
                     }
@@ -80,7 +80,7 @@ export function DadosClientes() {
                             document.getElementById("inputClearTelefone").value = '';
                             document.getElementById("inputClearNumberConvidados").value = '';
                             document.getElementById("dataEvento").value = '';
-                            document.getElementById("dataVisita").value;
+                            document.getElementById("dataVisita").value = '';
                         })
                     } catch (error) {
                         console.log("400")

@@ -66,12 +66,12 @@ const arrayMenu = [
             {
                 id: 4,
                 number: 5,
-                name: "Linguiça suína ou toscana"
+                name: "Linguiça suína"
             },
             {
                 id: 5,
                 number: 6,
-                name: "Linguiça suína ou toscana"
+                name: "Linguiça toscana"
             },
             {
                 id: 6,
@@ -82,6 +82,11 @@ const arrayMenu = [
                 id: 7,
                 number: 8,
                 name: "Maminha"
+            },
+            {
+                id: 8,
+                number: 9,
+                name: "Picanha"
             },
         ]
     },
@@ -173,16 +178,21 @@ const arrayGuarnicao = {
         {
             id: 6,
             number: 7,
-            name: "Salada verde ou legumes"
+            name: "Salada verde"
         },
         {
             id: 7,
             number: 8,
-            name: "Tabule"
+            name: "Salada de legumes"
         },
         {
             id: 8,
             number: 9,
+            name: "Tabule"
+        },
+        {
+            id: 9,
+            number: 10,
             name: "Vinagrete ou molho"
         },
     ]

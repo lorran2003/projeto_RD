@@ -15,6 +15,40 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
 
+const itens = [
+    {
+        id: 0,
+        item: "WI-FI"
+    },
+    {
+        id: 1,
+        item: "Som ambiente"
+    },
+    {
+        id: 2,
+        item: "Piscina"
+    },
+    {
+        id: 3,
+        item: "Area coberta"
+    },
+    {
+        id: 4,
+        item: "Area verde"
+    },
+    {
+        id: 5,
+        item: "4 banheiros"
+    },
+    {
+        id: 6,
+        item: "Churrasqueira"
+    },
+    {
+        id: 7,
+        item: "Cozinha"
+    }
+]
 
 export function DesktopView() {
 
@@ -116,9 +150,43 @@ export function DesktopView() {
 
     return (
         <>
+            {/* modal do pedido  */}
+            <Modal
+                isOpen={modalPedido}
+                onRequestClose={!modalPedido}
+                className="object-cover inset-0 z-50">
+
+                <div className='relative w-full bg-fixed bg-cover z-50'>
+
+                    <button className='absolute right-1 top-1 bg-[#F20505] w-10 h-10 rounded z-50' onClick={() => onRequestCloseModal(pedido)}>
+                        <FontAwesomeIcon icon={faX} style={{ color: "white" }} />
+                    </button>
+
+                    <Pedido />
+
+                </div>
+            </Modal>
+
+             {/* modal do cardapio */}
+             <Modal
+                isOpen={modalCardapio}
+                onRequestClose={() => onRequestCloseModal(cardapio)}
+                className={"object-cover inset-0 z-50"}>
+
+                <div className='relative w-full bg-fixed bg-cover'>
+
+                    <button className='absolute right-1 top-1 bg-[#F20505] w-10 h-10 rounded z-50' onClick={() => onRequestCloseModal(cardapio)}>
+                        <FontAwesomeIcon icon={faX} style={{ color: "white" }} />
+                    </button>
+
+                    <Cardapio />
+
+                </div>
+            </Modal>
+            
             <div id='divBuffet' className='flex'>
                 {/* // component de desktop */}
-                <div className='relative w-2/3'>
+                <div className='relative w-2/3 overflow-hidden'>
 
                     <img src={capaBuffet} alt='foto de picanha' className='w-full translate-x-full img' />
 
@@ -181,25 +249,43 @@ export function DesktopView() {
                             <VideoSalao />
                         </div>
 
-                        <div className='w-96 h-screen'>
-                            <h1>
-                                Sobre o salão
-                            </h1>
+                        <div className='w-96 h-screen bg-zinc-800 flex'>
+                            <div className="py-3 text-justify px-5">
+
+                                <div className="flex justify-start items-center gap-3">
+                                    <h1>Rua Ramiro Barcelos</h1>
+                                    <p>Numero: 80</p>
+                                </div>
+
+                                <ul>
+                                    <h1>Temos:</h1>
+                                    {itens.map((itens) => (
+
+                                        <li key={itens.id} className="flex justify-start items-center gap-2 mt-1
+                                        before:block before:bg-[#87ceeb] before:h-2 before:w-2 before:rounded-full">
+                                            <span>{itens.item}</span>
+                                        </li>
+                                    ))}
+
+                                </ul>
+
+                                <p className="italic font-bold text-red-700 mt-1">OBS: Horário do salão é de 10h ás 21h</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div id='divSalao' className='flex w-full h-auto'>
 
-                    <div className='w-1/3 px-2 flex items-center z-10'>
+                    <div className={'w-1/3 px-2 flex items-center ' + (modalCardapio || modalPedido ? 'z-0' : 'z-10')}>
                         <p className='text-justify roboto-light p-5 bg-zinc-800 rounded overflow-visible relative left-14 shadow-sm shadow-zinc-950 text-xl opacity-0 text'>
                             Descubra o lugar ideal para tornar seus momentos especiais! Nosso espaço oferece o cenário perfeito para celebrar com estilo e conforto. Com espaços amplos e piscina, estamos prontos para receber eventos de todos os tipos, desde festas de aniversário até eventos corporativos. Além disso, nossa equipe dedicada está aqui para ajudar a tornar seu evento perfeito em todos os detalhes. Venha nos visitar e descubra por que somos a escolha preferida para quem busca qualidade, praticidade e uma experiência única. Seja qual for a ocasião, estamos aqui para torná-la memorável!
                         </p>
                     </div>
 
-                    <div className='w-2/3 relative'>
+                    <div className='w-2/3 relative overflow-hidden'>
 
-                        <img src={capaSalao} alt='foto de picanha' className='w-full opacity-0 -translate-x-full img' />
+                        <img src={capaSalao} alt='foto do salão' className='w-full opacity-0 -translate-x-full img' />
 
                         <div className='flex flex-col justify-center items-end gap-2 right-0 absolute top-8'>
 
@@ -229,39 +315,6 @@ export function DesktopView() {
 
             </div>
 
-            {/* modal do cardapio */}
-            <Modal
-                isOpen={modalCardapio}
-                onRequestClose={() => onRequestCloseModal(cardapio)}
-                className={"object-cover inset-0 z-50"}>
-
-                <div className='relative w-full bg-fixed bg-cover'>
-
-                    <button className='absolute right-1 top-1 bg-[#F20505] w-10 h-10 rounded z-50' onClick={() => onRequestCloseModal(cardapio)}>
-                        <FontAwesomeIcon icon={faX} style={{ color: "white" }} />
-                    </button>
-
-                    <Cardapio />
-
-                </div>
-            </Modal>
-
-            {/* modal do pedido  */}
-            <Modal
-                isOpen={modalPedido}
-                onRequestClose={!modalPedido}
-                className={"object-cover inset-0 z-50"}>
-
-                <div className='relative w-full bg-fixed bg-cover '>
-
-                    <button className='absolute right-1 top-1 bg-[#F20505] w-10 h-10 rounded z-50' onClick={() => onRequestCloseModal(pedido)}>
-                        <FontAwesomeIcon icon={faX} style={{ color: "white" }} />
-                    </button>
-
-                    <Pedido />
-
-                </div>
-            </Modal>
         </>
     )
 }

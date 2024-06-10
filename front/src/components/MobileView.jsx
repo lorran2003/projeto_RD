@@ -23,7 +23,7 @@ export function MobileView() {
     const [salao, setSalao] = useState(false);
     const cardapio = "cardapio";
     const pedido = "pedido";
-    
+
     // função para abrir os modais
     function isOpenModal(string) {
 
@@ -152,7 +152,7 @@ export function MobileView() {
 
                 <div className='p-4 bg-zinc-950/80 opacity-0 text'>
                     <p className='text-justify roboto-light'>
-                        Descubra o sabor autêntico do churrasco feito com paixão e expertise. Nossas carnes selecionadas são cuidadosamente preparadas para oferecer uma experiência gastronômica única, onde cada mordida é um verdadeiro deleite para o paladar. Combinando técnicas tradicionais com os melhores cortes, entregamos uma explosão de sabores que vai conquistar até os paladares mais exigentes. Venha saborear a excelência culinária e descubra por que nosso churrasco é simplesmente incomparável.
+                        Descubra o sabor autêntico do churrasco feito com paixão e expertise. Nossas carnes selecionadas são cuidadosamente preparadas para oferecer uma experiência gastronômica única, onde cada mordida é um verdadeiro deleite para o paladar.
                     </p>
                 </div>
             </div>
@@ -198,7 +198,7 @@ export function MobileView() {
 
                 <div className='p-4 bg-zinc-950/80 opacity-0 text'>
                     <p className='text-justify roboto-light'>
-                        Descubra o lugar ideal para tornar seus momentos especiais! Nosso espaço oferece o cenário perfeito para celebrar com estilo e conforto. Com espaços amplos e piscina, estamos prontos para receber eventos de todos os tipos, desde festas de aniversário até eventos corporativos. Além disso, nossa equipe dedicada está aqui para ajudar a tornar seu evento perfeito em todos os detalhes. Venha nos visitar e descubra por que somos a escolha preferida para quem busca qualidade, praticidade e uma experiência única. Seja qual for a ocasião, estamos aqui para torná-la memorável!
+                        Descubra o lugar ideal para tornar seus momentos especiais! Nosso espaço oferece o cenário perfeito para celebrar com estilo e conforto. Com espaços amplos e piscina, estamos prontos para receber eventos de todos os tipos, desde festas de aniversário até eventos corporativos.
                     </p>
                 </div>
 

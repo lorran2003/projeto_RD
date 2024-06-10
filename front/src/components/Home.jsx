@@ -39,8 +39,8 @@ export function Home() {
 
     return (
         <div className="relative w-full flex justify-center items-center lg:flex lg:justify-start lg:items-start">
-            <div id="divImg" className="w-full object-cover lg:w-full">
-                <img id="img" src={img} alt="imagem RD churrasco" className="w-full object-cover -translate-x-full lg:w-full lg:h-auto" />
+            <div id="divImg" className="w-full object-cover overflow-hidden">
+                <img id="img" src={img} alt="imagem RD churrasco" className="w-full object-cover -translate-x-full h-auto" />
             </div>
             <div id="text" className="absolute bottom-0 opacity-0 h-auto text-justify text-zinc-50 bg-zinc-800 p-4 lg:sticky lg:top-0 lg:w-full lg:py-10">
                 <p className="sm:text-3xl roboto-light">

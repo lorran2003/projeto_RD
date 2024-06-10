@@ -12,12 +12,12 @@ export function Header() {
 
     useGSAP(() => {
         const ct = gsap.context(
-            gsap.to("#divMain", {delay:1.5, duration:3, opacity:1}),
-            gsap.to("#divIntro", {delay:3, duration:1, height:150})
+            gsap.to("#divMain", { delay: 1.5, duration: 3, opacity: 1 }),
+            gsap.to("#divIntro", { delay: 3, duration: 1, height: 150 })
         )
 
-        return () => {ct.revert()};
-    },[]);
+        return () => { ct.revert() };
+    }, []);
 
     return (
         <header className="relative z-0 border-red-800 px-28 text-zinc-100/90 shadow-sm shadow-zinc-700 h-screen">
@@ -39,13 +39,13 @@ export function Header() {
 
                     <nav className="text-zinc-50/80 flex items-center justify-center z-50">
                         <div className="border-red-800 border-r-4 px-2 flex items-center justify-center gap-2 hover:text-zinc-50 transition delay-75 w-32">
-                            <a>
+                            <a href="https://www.facebook.com/rdchurrascorj" target="_blank">
                                 <FontAwesomeIcon icon={faSquareFacebook} className="size-5" />
                             </a>
-                            <a href="#">Facebook</a>
+                            <a href="https://www.facebook.com/rdchurrascorj" target="_blank">Facebook</a>
                         </div>
                         <div className="border-red-800 border-r-4 px-2 flex items-center justify-center gap-2 hover:text-zinc-50 transition delay-75 w-32   ">
-                            <a>
+                            <a href="https://www.instagram.com/rdchurrasco/" target="_blank">
                                 <FontAwesomeIcon icon={faInstagram} className="size-5" />
                             </a>
                             <a href="https://www.instagram.com/rdchurrasco/" target="_blank">Instagram</a>
@@ -82,7 +82,7 @@ export function Header() {
                         before:h-0.5 before:w-full before:block before:bg-[#8F1620] before:opacity-50 before:absolute before:top-0">
 
 
-                        <p className="text-2xl sm:text-4xl px-4 greatVibesRegular">Transformando eventos há mais de 15 anos em uma celebração inesquecível da vida. Junte-se a nós para uma festa com sabores que ficam na memória.</p>
+                        <p className="text-2xl sm:text-4xl px-4 greatVibesRegular">Transformando eventos há mais de 18 anos em uma celebração inesquecível da vida. Junte-se a nós para uma festa com sabores que ficam na memória.</p>
                     </div>
                 </div>
             </div>
